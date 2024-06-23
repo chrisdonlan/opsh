@@ -10,5 +10,7 @@ lock(){
 	rm "$1.env"
 }
 
-alias dlock='lock ~/.digitalocean/$(basename `pwd`)'
-alias dunlock='unlock ~/.digitalocean/$(basename `pwd`)'
+CLOUD_FOLDER=${CLOUD_FOLDER:="${HOME}/.digitalocean"}
+
+alias dlock="lock ${CLOUD_FOLDER}"'/$(basename `pwd`)'
+alias dunlock="unlock ${CLOUD_FOLDER}"'/$(basename `pwd`)'
