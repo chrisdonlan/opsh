@@ -2,7 +2,7 @@
 unlock(){
 	[ -z "$1" ] && echo "usage: unlock ENV_FILE_BASENAME (e.g. foo in bar/foo.env.enc)" && exit 1
 	read -r -s -p "password: " PASSWORD && echo
-	source <(echo "$PASSWORD" | lock.sh  "$1.env.enc")
+	set -a && source <(echo "$PASSWORD" | lock.sh  "$1.env.enc") && set +a
 }
 lock(){
 	[ -z "$1" ] && echo "usage: lock ENV_FILE_BASENAME (e.g. foo in bar/foo.env)" && exit 1

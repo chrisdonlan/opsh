@@ -26,5 +26,4 @@ if ! [[ "$1" =~ [.]enc$ ]]; then
 else
 	[ -n "${DECRYPTED}" ] && echo
 	openssl enc -d -aes-256-cbc -iter 10 -in "$1" -out "${DECRYPTED:=/dev/stdout}" -k ${PASSWORD}
-
 fi
